@@ -82,6 +82,7 @@ def to_unixtime(time_string):
     if len(time_string) == 10:
         dt = datetime.strptime(time_string, '%Y-%m-%d')
     else:
+        time_string = time_string.replace(' UTC', 'Z)
         m = re.search('(Z|([+-])(\d\d):?(\d\d))$', time_string)
         if m:
             tzm = m.groups()
